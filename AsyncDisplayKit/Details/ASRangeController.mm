@@ -369,7 +369,7 @@ static UIApplicationState __ApplicationState = UIApplicationStateActive;
   [self _setVisibleNodes:newVisibleNodes];
   
   // TODO: This code is for debugging only, but would be great to clean up with a delegate method implementation.
-  if (ASDisplayNode. shouldShowRangeDebugOverlay) {
+  if (ASDisplayNode.shouldShowRangeDebugOverlay) {
     ASScrollDirection scrollableDirections = ASScrollDirectionUp | ASScrollDirectionDown;
     if ([_dataSource isKindOfClass:NSClassFromString(@"ASCollectionView")]) {
 #pragma clang diagnostic push
