@@ -42,4 +42,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface ASDisplayNode (RangeDebugging)
+
+/**
+ * Enable a visualization overlay of the all table/collection tuning parameters. For dev purposes only.
+ * To use, set this in the AppDelegate --> ASDisplayNode.shouldShowRangeDebugOverlay = YES
+ */
+@property (class, nonatomic) BOOL shouldShowRangeDebugOverlay;
+
+@end
+
+
 NS_ASSUME_NONNULL_END

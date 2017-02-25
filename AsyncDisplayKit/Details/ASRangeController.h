@@ -182,13 +182,6 @@ AS_SUBCLASSING_RESTRICTED
 
 @interface ASRangeController (DebugInternal)
 
-/**
- * Class method to enable a visualization overlay of the all ASRangeController's tuning parameters. For dev purposes only.
- * To use, message ASRangeController in the AppDelegate --> [ASRangeController setShouldShowRangeDebugOverlay:YES];
- * @param enable Specify YES to make this debug feature enabled when messaging the ASRangeController class.
- */
-@property (class, nonatomic) BOOL shouldShowRangeDebugOverlay;
-
 + (void)layoutDebugOverlayIfNeeded;
 
 - (void)addRangeControllerToRangeDebugOverlay;
