@@ -70,7 +70,7 @@ static UIApplicationState __ApplicationState = UIApplicationStateActive;
   }
   
   _rangeIsValid = YES;
-  _currentRangeMode = ASLayoutRangeModeInvalid;
+  _currentRangeMode = ASLayoutRangeModeUnspecified;
   _preserveCurrentRangeMode = NO;
   _previousScrollDirection = ASScrollDirectionDown | ASScrollDirectionRight;
   
@@ -103,7 +103,7 @@ static UIApplicationState __ApplicationState = UIApplicationStateActive;
 
 + (BOOL)isFirstRangeUpdateForRangeMode:(ASLayoutRangeMode)rangeMode
 {
-  return (rangeMode == ASLayoutRangeModeInvalid);
+  return (rangeMode == ASLayoutRangeModeUnspecified);
 }
 
 + (ASLayoutRangeMode)rangeModeForInterfaceState:(ASInterfaceState)interfaceState
