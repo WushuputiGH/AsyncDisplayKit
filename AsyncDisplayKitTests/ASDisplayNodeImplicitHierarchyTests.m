@@ -126,7 +126,6 @@
   XCTAssertEqual(node.subnodes[1], node2);
   
   node.layoutState = @2;
-  [node invalidateCalculatedLayout];
   [node setNeedsLayout]; // After a state change the layout needs to be invalidated
   [node.view layoutIfNeeded]; // A new layout pass will trigger the hiearchy transition
 
@@ -212,7 +211,7 @@
         
         // Change state and measure in the background
         node.layoutState = @2;
-        [node invalidateCalculatedLayout];
+        [node setNeedsLayout];
     
         ASDisplayNodeSizeToFitSizeRange(node, ASSizeRangeMake(CGSizeZero, CGSizeMake(INFINITY, INFINITY)));
         
