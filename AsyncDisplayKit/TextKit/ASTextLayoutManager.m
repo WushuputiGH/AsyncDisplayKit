@@ -8,9 +8,9 @@
 //  of patent rights can be found in the PATENTS file in the same directory.
 //
 
-#import <AsyncDisplayKit/ASLayoutManager.h>
+#import <AsyncDisplayKit/ASTextLayoutManager.h>
 
-@implementation ASLayoutManager
+@implementation ASTextLayoutManager
 
 - (void)showCGGlyphs:(const CGGlyph *)glyphs
            positions:(const CGPoint *)positions

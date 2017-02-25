@@ -9,7 +9,7 @@
 //
 
 #import <AsyncDisplayKit/ASTextKitContext.h>
-#import <AsyncDisplayKit/ASLayoutManager.h>
+#import <AsyncDisplayKit/ASTextLayoutManager.h>
 #import <AsyncDisplayKit/ASThread.h>
 
 #include <memory>
@@ -41,7 +41,7 @@
     // Create the TextKit component stack with our default configuration.
     
     _textStorage = [[NSTextStorage alloc] init];
-    _layoutManager = [[ASLayoutManager alloc] init];
+    _layoutManager = [[ASTextLayoutManager alloc] init];
     _layoutManager.usesFontLeading = NO;
     [_textStorage addLayoutManager:_layoutManager];
     

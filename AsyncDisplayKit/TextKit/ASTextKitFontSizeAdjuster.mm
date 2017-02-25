@@ -15,7 +15,7 @@
 #import <mutex>
 
 #import <AsyncDisplayKit/ASTextKitContext.h>
-#import <AsyncDisplayKit/ASLayoutManager.h>
+#import <AsyncDisplayKit/ASTextLayoutManager.h>
 
 //#define LOG(...) NSLog(__VA_ARGS__)
 #define LOG(...)
@@ -94,7 +94,7 @@
     
     NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString:attributedString];
     if (_sizingLayoutManager == nil) {
-        _sizingLayoutManager = [[ASLayoutManager alloc] init]; 
+        _sizingLayoutManager = [[ASTextLayoutManager alloc] init];
         _sizingLayoutManager.usesFontLeading = NO;
     }
     [textStorage addLayoutManager:_sizingLayoutManager];

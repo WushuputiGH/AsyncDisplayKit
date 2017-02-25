@@ -12,6 +12,6 @@
 #import <AsyncDisplayKit/ASBaseDefines.h>
 
 AS_SUBCLASSING_RESTRICTED
-@interface ASLayoutManager : NSLayoutManager
+@interface ASTextLayoutManager : NSLayoutManager
 
 @end
