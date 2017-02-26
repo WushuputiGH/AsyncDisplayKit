@@ -17,7 +17,7 @@
 		052EE06B1A15A0D8002C6279 /* TestResources in Resources */ = {isa = PBXBuildFile; fileRef = 052EE06A1A15A0D8002C6279 /* TestResources */; };
 		056D21551ABCEF50001107EF /* ASImageNodeSnapshotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 056D21541ABCEF50001107EF /* ASImageNodeSnapshotTests.m */; };
 		057D02C41AC0A66700C7AC3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 057D02C31AC0A66700C7AC3C /* main.m */; };
-		057D02C71AC0A66700C7AC3C /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 057D02C61AC0A66700C7AC3C /* AppDelegate.mm */; };
+		057D02C71AC0A66700C7AC3C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 057D02C61AC0A66700C7AC3C /* AppDelegate.m */; };
 		058D09BE195D04C000B7D73C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D09BD195D04C000B7D73C /* XCTest.framework */; };
 		058D09BF195D04C000B7D73C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D09AF195D04C000B7D73C /* Foundation.framework */; };
 		058D09C1195D04C000B7D73C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D09C0195D04C000B7D73C /* UIKit.framework */; };
@@ -33,7 +33,6 @@
 		05EA6FE71AC0966E00E35788 /* ASSnapshotTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EA6FE61AC0966E00E35788 /* ASSnapshotTestCase.m */; };
 		18C2ED7F1B9B7DE800F627B3 /* ASCollectionNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 18C2ED7C1B9B7DE800F627B3 /* ASCollectionNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18C2ED831B9B7DE800F627B3 /* ASCollectionNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18C2ED7D1B9B7DE800F627B3 /* ASCollectionNode.mm */; };
-		204C979E1B362CB3002B1083 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204C979D1B362CB3002B1083 /* Default-568h@2x.png */; };
 		242995D31B29743C00090100 /* ASBasicImageDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 242995D21B29743C00090100 /* ASBasicImageDownloaderTests.m */; };
 		2538B6F31BC5D2A2003CA0B4 /* ASCollectionViewFlowLayoutInspectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2538B6F21BC5D2A2003CA0B4 /* ASCollectionViewFlowLayoutInspectorTests.m */; };
 		254C6B521BF8FE6D003EC431 /* ASTextKitTruncationTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 254C6B511BF8FE6D003EC431 /* ASTextKitTruncationTests.mm */; };
@@ -414,7 +413,7 @@
 		057D02C21AC0A66700C7AC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		057D02C31AC0A66700C7AC3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		057D02C51AC0A66700C7AC3C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		057D02C61AC0A66700C7AC3C /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = AppDelegate.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		057D02C61AC0A66700C7AC3C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0587F9BB1A7309ED00AFF0BA /* ASEditableTextNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASEditableTextNode.h; sourceTree = "<group>"; };
 		0587F9BC1A7309ED00AFF0BA /* ASEditableTextNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = ASEditableTextNode.mm; sourceTree = "<group>"; };
 		058D09AF195D04C000B7D73C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -482,7 +481,6 @@
 		18C2ED7C1B9B7DE800F627B3 /* ASCollectionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCollectionNode.h; sourceTree = "<group>"; };
 		18C2ED7D1B9B7DE800F627B3 /* ASCollectionNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASCollectionNode.mm; sourceTree = "<group>"; };
 		1950C4481A3BB5C1005C8279 /* ASEqualityHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASEqualityHelpers.h; sourceTree = "<group>"; };
-		204C979D1B362CB3002B1083 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		205F0E0D1B371875007741D0 /* UICollectionViewLayout+ASConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewLayout+ASConvenience.h"; sourceTree = "<group>"; };
 		205F0E0E1B371875007741D0 /* UICollectionViewLayout+ASConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewLayout+ASConvenience.m"; sourceTree = "<group>"; };
 		205F0E111B371BD7007741D0 /* ASScrollDirection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASScrollDirection.m; sourceTree = "<group>"; };
@@ -811,13 +809,12 @@
 		057D02C01AC0A66700C7AC3C /* AsyncDisplayKitTestHost */ = {
 			isa = PBXGroup;
 			children = (
-				204C979D1B362CB3002B1083 /* Default-568h@2x.png */,
 				057D02C51AC0A66700C7AC3C /* AppDelegate.h */,
-				057D02C61AC0A66700C7AC3C /* AppDelegate.mm */,
+				057D02C61AC0A66700C7AC3C /* AppDelegate.m */,
 				057D02C11AC0A66700C7AC3C /* Supporting Files */,
 			);
 			name = AsyncDisplayKitTestHost;
-			path = ../AsyncDisplayKitTestHost;
+			path = TestHost;
 			sourceTree = "<group>";
 		};
 		057D02C11AC0A66700C7AC3C /* Supporting Files */ = {
@@ -832,7 +829,7 @@
 		058D09A3195D04C000B7D73C = {
 			isa = PBXGroup;
 			children = (
-				058D09B1195D04C000B7D73C /* AsyncDisplayKit */,
+				058D09B1195D04C000B7D73C /* Source */,
 				058D09C5195D04C000B7D73C /* Tests */,
 				058D09AE195D04C000B7D73C /* Frameworks */,
 				058D09AD195D04C000B7D73C /* Products */,
@@ -867,7 +864,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		058D09B1195D04C000B7D73C /* AsyncDisplayKit */ = {
+		058D09B1195D04C000B7D73C /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				CCE04B1D1E313E99006AEBBB /* Collection Data Adapter */,
@@ -954,7 +951,7 @@
 				690ED5911E36D118000627C0 /* tvOS */,
 				058D09B2195D04C000B7D73C /* Supporting Files */,
 			);
-			path = AsyncDisplayKit;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		058D09B2195D04C000B7D73C /* Supporting Files */ = {
@@ -1033,8 +1030,7 @@
 				695BE2541DC1245C008E6EA5 /* ASWrapperSpecSnapshotTests.mm */,
 				699B83501E3C1BA500433FA4 /* ASLayoutSpecTests.m */,
 			);
-			name = Tests;
-			path = AsyncDisplayKitTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		058D09C6195D04C000B7D73C /* Supporting Files */ = {
@@ -1669,7 +1665,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				204C979E1B362CB3002B1083 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1747,7 +1742,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				057D02C71AC0A66700C7AC3C /* AppDelegate.mm in Sources */,
+				057D02C71AC0A66700C7AC3C /* AppDelegate.m in Sources */,
 				057D02C41AC0A66700C7AC3C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
