@@ -19,7 +19,7 @@ ASYNCDISPLAYKIT_EXPORTED_HEADERS = glob([
   'Source/Details/**/*.h',
   'Source/Layout/*.h',
   'Source/Base/*.h',
-  'Source/Debug/ASLayoutElementInspectorNode.h',
+  'Source/Debug/AsyncDisplayKit+Debug.h',
   # Most TextKit components are not public because the C++ content
   # in the headers will cause build errors when using
   # `use_frameworks!` on 0.39.0 & Swift 2.1.
