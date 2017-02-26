@@ -119,7 +119,7 @@ apple_bundle(
 
 apple_binary(
   name = 'TestHostBinary',
-  headers = glob(['AsyncDisplayKitTestHost/*.h']),
+  headers = glob(['Tests/TestHost/*.h']),
   srcs = glob([
     'Tests/TestHost/*.m',
     'Tests/TestHost/*.mm',
