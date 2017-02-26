@@ -25,8 +25,11 @@ typedef struct ASLayoutCacheEntryKey {
  * Use a mutable dictionary for now.
  * We could do something much more sophisticated to avoid the hit from boxing.
  */
+// ASLayoutCacheEntryKey -> ASLayout
 @property (nonatomic, strong, readonly) NSMutableDictionary<NSValue *, ASLayout *> *layouts;
-@property (nonatomic, strong, readonly) NSMutableDictionary<NSValue *, NSArray<ASLayout *> *> *frameLayouts;
+
+// CGSize -> [ASLayout]
+@property (nonatomic, strong, readonly) NSMutableDictionary<NSValue *, NSArray<ASLayout *> *> *sizeLayouts;
 
 @end
 
@@ -37,7 +40,7 @@ typedef struct ASLayoutCacheEntryKey {
 {
   if (self = [super init]) {
     _layouts = [[NSMutableDictionary alloc] init];
-    _frameLayouts = [[NSMutableDictionary alloc] init];
+    _sizeLayouts = [[NSMutableDictionary alloc] init];
   }
   return self;
 }
@@ -48,13 +51,13 @@ typedef struct ASLayoutCacheEntryKey {
   NSValue *key = [NSValue value:&entryKey withObjCType:@encode(ASLayoutCacheEntryKey)];
   _layouts[key] = layout;
   
-  NSValue *frameKey = [NSValue valueWithCGRect:layout.frame];
-  NSMutableArray *array = (NSMutableArray *)_frameLayouts[frameKey];
+  NSValue *sizeKey = [NSValue valueWithCGSize:layout.size];
+  NSMutableArray *array = (NSMutableArray *)_sizeLayouts[sizeKey];
   if (array == nil) {
-    _frameLayouts[frameKey] = [NSMutableArray array];
+    _sizeLayouts[sizeKey] = [NSMutableArray array];
   }
 
-  [(NSMutableArray *)_frameLayouts[frameKey] addObject:layout];
+  [(NSMutableArray *)_sizeLayouts[sizeKey] addObject:layout];
 }
 
 - (nullable ASLayout *)layoutForSizeRange:(ASSizeRange)sizeRange parentSize:(CGSize)parentSize
@@ -64,10 +67,10 @@ typedef struct ASLayoutCacheEntryKey {
   return _layouts[key];
 }
 
-- (nullable NSArray<ASLayout *> *)layoutsForFrame:(CGRect)frame
+- (nullable NSArray<ASLayout *> *)layoutsForSize:(CGSize)size
 {
-  NSValue *key = [NSValue valueWithCGRect:frame];
-  return [_frameLayouts[key] copy];
+  NSValue *key = [NSValue valueWithCGSize:size];
+  return [_sizeLayouts[key] copy];
 }
 
 @end

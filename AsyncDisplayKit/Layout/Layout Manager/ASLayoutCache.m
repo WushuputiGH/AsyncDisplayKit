@@ -45,12 +45,12 @@
   return layout;
 }
 
-- (nullable ASLayout *)cachedLayoutForNode:(ASDisplayNode *)node frame:(CGRect)frame
+- (nullable ASLayout *)cachedLayoutForNode:(ASDisplayNode *)node size:(CGSize)size
 {
   ASLayoutCacheEntry *entry = [_cache objectForKey:node];
   [_lock lock];
     ASLayout *layout = nil;
-    NSArray *layouts = [entry layoutsForFrame:frame];
+    NSArray *layouts = [entry layoutsForSize:size];
     for (ASLayout *l in layouts) {
       if (l.layoutElement == (id<ASLayoutElement>)node) {
         layout = l;
@@ -68,6 +68,8 @@
     if (entry == nil) {
       entry = [[ASLayoutCacheEntry alloc] init];
       [_cache setObject:entry forKey:node];
+    } else {
+        NSLog(@"what??");
     }
     [entry addLayout:layout forSizeRange:sizeRange parentSize:parentSize];
   [_lock unlock];

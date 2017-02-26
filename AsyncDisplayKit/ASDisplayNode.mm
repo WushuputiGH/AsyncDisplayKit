@@ -38,6 +38,8 @@
 #import <AsyncDisplayKit/ASWeakProxy.h>
 #import <AsyncDisplayKit/ASResponderChainEnumerator.h>
 
+#import <AsyncDisplayKit/ASLayoutManager.h>
+
 /**
  * Assert if the current thread owns a mutex.
  * This assertion is useful when you want to indicate and enforce the locking policy/expectation of methods.
@@ -890,13 +892,12 @@ ASLayoutElementFinalLayoutElementDefault
     ASLayoutElementSetCurrentContext(context);
     didCreateNewContext = YES;
   }
-    
-    // Use the last known constrainedSize passed from a parent during layout (if never, use bounds).
+  
+  
+  
+  // Use the last known constrainedSize passed from a parent during layout (if never, use bounds).
   auto previousLayout = _calculatedDisplayNodeLayout;
-  ASLayout *layout = [self calculateLayoutThatFits:constrainedSize
-                                    restrictedToSize:self.style.size
-                                relativeToParentSize:parentSize];
-    
+  ASLayout *layout = [[ASLayoutManager sharedManager] layoutForNode:self sizeRange:constrainedSize parentSize:parentSize];
   auto pendingLayout = std::make_shared<ASDisplayNodeLayout>(layout, constrainedSize, parentSize);
   
   if (didCreateNewContext) {
@@ -944,6 +945,7 @@ ASLayoutElementFinalLayoutElementDefault
   }
   
   // This is the root node. Trigger a full measurement pass on *current* thread. Old constrained size is re-used.
+  // This also applies the new layout as _calculatedDisplayNodeLayout
   [self layoutThatFits:_calculatedDisplayNodeLayout->constrainedSize];
   
   CGRect oldBounds = self.bounds;
@@ -972,6 +974,7 @@ ASLayoutElementFinalLayoutElementDefault
   // This will cause the next layout pass to compute a new layout instead of returning
   // the cached layout in case the constrained or parent size did not change
   _calculatedDisplayNodeLayout->invalidate();
+  [[ASLayoutManager sharedManager] invalidateLayoutOfNode:self];
 
 #if YOGA
   [self invalidateCalculatedYogaLayout];
@@ -1236,17 +1239,7 @@ ASLayoutElementFinalLayoutElementDefault
 
 - (void)_locked_layoutSublayouts
 {
-  ASLayout *layout = _calculatedDisplayNodeLayout->layout;
-  for (ASDisplayNode *node in _subnodes) {
-    CGRect frame = [layout frameForElement:node];
-    if (CGRectIsNull(frame)) {
-      // There is no frame for this node in our layout.
-      // This currently can happen if we get a CA layout pass
-      // while waiting for the client to run animateLayoutTransition:
-    } else {
-      node.frame = frame;
-    }
-  }
+  [[ASLayoutManager sharedManager] layoutSubnodesOfNode:self];
 }
 
 #pragma mark Automatically Manages Subnodes

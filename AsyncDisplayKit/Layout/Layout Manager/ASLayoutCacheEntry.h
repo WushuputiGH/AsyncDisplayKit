@@ -30,8 +30,8 @@ AS_SUBCLASSING_RESTRICTED
 
 - (nullable ASLayout *)layoutForSizeRange:(ASSizeRange)sizeRange parentSize:(CGSize)parentSize;
 
-/// Returns all layouts for a
-- (nullable NSArray<ASLayout *> *)layoutsForFrame:(CGRect)frame;
+/// Returns all layouts for a specific size
+- (nullable NSArray<ASLayout *> *)layoutsForSize:(CGSize)size;
 
 @end
 

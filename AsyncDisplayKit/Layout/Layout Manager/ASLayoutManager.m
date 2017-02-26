@@ -11,7 +11,7 @@
 #import "ASLayoutType.h"
 
 #import "ASDisplayNode.h"
-#import "ASLayout.h"
+#import "ASLayoutSpec+Subclasses.h"
 
 @interface ASLayoutElementStyle (Private)
 - (ASLayoutElementSize)size;
@@ -55,7 +55,16 @@
 
 - (ASLayout *)layoutForNode:(ASDisplayNode *)node sizeRange:(ASSizeRange)sizeRange parentSize:(CGSize)parentSize
 {
-  return [node calculateLayoutThatFits:sizeRange restrictedToSize:node.style.size relativeToParentSize:parentSize];
+  ASLayout *layout = [self.layoutCache cachedLayoutForNode:node sizeRange:sizeRange parentSize:parentSize];
+  if (layout == nil) {
+      layout = [node calculateLayoutThatFits:sizeRange restrictedToSize:node.style.size relativeToParentSize:parentSize];
+    if (ASIsCGPositionValidForLayout(layout.position) == NO) {
+      layout.position = CGPointZero;
+    }
+    layout.position = CGPointZero;
+    [self.layoutCache setCachedLayout:layout forNode:node sizeRange:sizeRange parentSize:parentSize];
+  }
+  return layout;
 }
 
 #pragma mark - Layout
@@ -64,7 +73,7 @@
 {
   ASDisplayNodeAssertMainThread();
   
-  ASLayout *layout = [self.layoutCache cachedLayoutForNode:node frame:node.frame];
+  ASLayout *layout = [self.layoutCache cachedLayoutForNode:node size:node.bounds.size];
   if (layout == nil) {
     ASSizeRange sizeRange = ASSizeRangeMake(node.bounds.size);
     layout = [self layoutForNode:node sizeRange:sizeRange parentSize:sizeRange.max];
@@ -81,12 +90,13 @@
 - (void)invalidateLayoutOfNode:(ASDisplayNode *)node
 {
   [self.layoutCache invalidateCachedLayoutsForNode:node];
-  [node setNeedsLayout];
-  
-  ASDisplayNode *supernode = node.supernode;
-  if (supernode != nil) {
-    [self.layoutCache invalidateCachedLayoutsForNode:supernode];
-  }
+
+//  [node setNeedsLayout];
+//  
+//  ASDisplayNode *supernode = node.supernode;
+//  if (supernode != nil) {
+//    [self.layoutCache invalidateCachedLayoutsForNode:supernode];
+//  }
 }
 
 @end

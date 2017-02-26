@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Returns the cached layout for a node's frame
  * cached layout is availbale.
  */
-- (nullable ASLayout *)cachedLayoutForNode:(ASDisplayNode *)node frame:(CGRect)frame;
+- (nullable ASLayout *)cachedLayoutForNode:(ASDisplayNode *)node size:(CGSize)size;
 
 /**
  * Set a given layout for a node.
