@@ -945,12 +945,13 @@
 				68FC85E81CE29C7D00EDD713 /* ASVisibilityProtocols.m */,
 				CC55A70B1E529FA200594372 /* UIResponder+AsyncDisplayKit.h */,
 				CC55A70C1E529FA200594372 /* UIResponder+AsyncDisplayKit.m */,
-				690ED5911E36D118000627C0 /* tvOS */,
+				058D0A42195D058D00B7D73C /* Base */,
 				DE89C1691DCEB9CC00D49D74 /* Debug */,
 				058D09E1195D050800B7D73C /* Details */,
 				058D0A01195D050800B7D73C /* Private */,
 				AC6456051B0A333200CF11B8 /* Layout */,
 				257754661BED245B00737CA5 /* TextKit */,
+				690ED5911E36D118000627C0 /* tvOS */,
 				058D09B2195D04C000B7D73C /* Supporting Files */,
 			);
 			path = AsyncDisplayKit;
@@ -960,7 +961,6 @@
 			isa = PBXGroup;
 			children = (
 				CC57EAF91E394EA40034C595 /* Info.plist */,
-				058D0A42195D058D00B7D73C /* Base */,
 				044285011BAA3CC700D16268 /* module.modulemap */,
 			);
 			name = "Supporting Files";
@@ -1211,7 +1211,7 @@
 				0516FA3B1A15563400B4EBED /* ASLog.h */,
 			);
 			path = Base;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		257754661BED245B00737CA5 /* TextKit */ = {
 			isa = PBXGroup;
